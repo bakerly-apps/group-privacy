@@ -1,7 +1,7 @@
-# GROUP — privacy policy
+# Driftile — privacy policy
 
-Published at <https://bakerly-apps.github.io/group-privacy/> and referenced from
-the Google Play listing for `com.bakerly.group`.
+Published at <https://bakerly-apps.github.io/driftile-privacy/> and referenced from
+the Google Play listing for `com.bakerly.driftile`.
 
 **Do not edit `index.html` here.** It is generated. The source of truth is
 `docs/PRIVACY_POLICY.md` in the game project; regenerate with `npm run privacy`
