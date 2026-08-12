@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — GROUP</title>
+<meta name="description" content="Privacy policy for GROUP (com.bakerly.group).">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #ffffff; --text: #1c1b22; --muted: #5c5a68;
+    --rule: #e3e1e8; --surface: #f7f6f9; --link: #2b5c9c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14131a; --text: #ececf1; --muted: #a3a1ad;
+      --rule: #2c2a35; --surface: #1d1c24; --link: #7aa8dd;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px; line-height: 1.65; color: var(--text); background: var(--bg);
+    -webkit-text-size-adjust: 100%;
+    /* A bare URL in the ad-network section is one unbreakable token wider than
+       a phone, and it dragged the whole page sideways. */
+    overflow-wrap: break-word;
+  }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.3rem; margin: 2.5rem 0 0.75rem; padding-top: 0.5rem; }
+  h3 { font-size: 1.05rem; margin: 1.75rem 0 0.5rem; }
+  p, ul, ol { margin: 0 0 1rem; }
+  ul, ol { padding-inline-start: 1.4rem; }
+  li { margin-bottom: 0.35rem; }
+  a { color: var(--link); overflow-wrap: anywhere; }
+  hr { height: 1px; margin: 2.5rem 0; background: var(--rule); border: 0; }
+  code {
+    padding: 0.1em 0.35em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.87em; background: var(--surface); border-radius: 4px;
+  }
+  pre {
+    padding: 1rem; overflow-x: auto; background: var(--surface);
+    border-radius: 8px; line-height: 1.5;
+  }
+  pre code { padding: 0; background: none; }
+  blockquote {
+    margin: 1.25rem 0; padding: 0.75rem 1rem; color: var(--muted);
+    background: var(--surface); border-inline-start: 3px solid var(--rule); border-radius: 0 8px 8px 0;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+  .scroll { margin: 0 0 1.25rem; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+  th, td { padding: 0.55rem 0.7rem; text-align: start; vertical-align: top; border-bottom: 1px solid var(--rule); }
+  th { font-weight: 650; white-space: nowrap; }
+</style>
+</head>
+<body>
+<h1 id="privacy-policy-group">Privacy Policy — GROUP</h1>
+<p><strong>Effective date:</strong> 2026-08-12<br><strong>Last updated:</strong> 2026-08-12<br><strong>Published at:</strong> https://bakerly-apps.github.io/group-privacy/<br><strong>Applies to:</strong> the Android application <code>com.bakerly.group</code> distributed on Google Play, and the web version of the same game.</p>
+<p>This policy is written by Omar Diar Bakerly (trading as Bakerly Apps) ("we", "us"), Herwarthstraße 63, 47137 Duisburg, Germany.</p>
+<hr>
+<h2 id="feature-status">Feature status</h2>
+<p>Some sections of this policy describe features that may not be switched on in the version of the app you have installed. Each section below is marked. <strong>A section marked NOT ACTIVE describes nothing that is happening today.</strong></p>
+<div class="scroll"><table><thead><tr>
+<th>Feature</th>
+<th>Status in this version</th>
+<th>Section</th>
+</tr></thead><tbody>
+<tr>
+<td>On-device saved progress</td>
+<td><strong>ACTIVE</strong></td>
+<td><a href="#2-what-the-app-stores-on-your-device">2</a></td>
+</tr>
+<tr>
+<td>Sharing your daily result</td>
+<td><strong>ACTIVE</strong> (only when you tap Share)</td>
+<td><a href="#31-the-share-button">3.1</a></td>
+</tr>
+<tr>
+<td>Android system backup</td>
+<td><strong>ACTIVE</strong> (controlled by your Google account settings)</td>
+<td><a href="#32-android-backup">3.2</a></td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td><strong>NOT ACTIVE</strong> — no analytics endpoint is configured and no analytics SDK is installed</td>
+<td><a href="#5-analytics--conditional">5</a></td>
+</tr>
+<tr>
+<td>Crash reporting</td>
+<td><strong>NOT ACTIVE</strong> — no crash reporter is installed</td>
+<td><a href="#6-crash-and-error-reporting--conditional">6</a></td>
+</tr>
+<tr>
+<td>Advertising (Google AdMob, rewarded video)</td>
+<td><strong>NOT ACTIVE</strong> — no advertising SDK is installed</td>
+<td><a href="#7-advertising--conditional">7</a></td>
+</tr>
+<tr>
+<td>In-app purchases (Google Play Billing)</td>
+<td><strong>NOT ACTIVE</strong> — no billing SDK is installed</td>
+<td><a href="#8-purchases--conditional">8</a></td>
+</tr>
+<tr>
+<td>Daily reminder notification</td>
+<td><strong>NOT ACTIVE</strong> — no notification plugin is installed, and the app declares no notifications permission</td>
+<td><a href="#4-permissions">4</a></td>
+</tr>
+</tbody></table></div>
+<blockquote><p><strong>Maintenance note:</strong> re-publish this document at the same URL on the same day any conditional feature ships. A privacy policy that lags the build is itself a Google Play policy violation. The four conditional sections are written in advance precisely so that switching one on is an edit to one table row rather than a rewrite.</p></blockquote>
+<hr>
+<h2 id="1-the-short-version">1. The short version</h2>
+<p>The game runs entirely on your device. It does not have accounts, does not ask who you are, and — in the version described by the ACTIVE rows above — does not send anything about you to us or to anyone else. Your progress is a small file on your phone. Deleting the app deletes it.</p>
+<p>We do not sell personal data. We have never sold personal data.</p>
+<hr>
+<h2 id="2-what-the-app-stores-on-your-device">2. What the app stores on your device</h2>
+<p>All of the following is written to your device's local storage by the app and stays there. It is not transmitted to us.</p>
+<div class="scroll"><table><thead><tr>
+<th>What</th>
+<th>Contains</th>
+<th>Storage key</th>
+</tr></thead><tbody>
+<tr>
+<td>Campaign progress</td>
+<td>Which levels you have completed, your best move count per level, stars earned, how many times you played each level, whether you solved it without undo, whether you solved it without a hint, whether you skipped it, the highest level unlocked, the level you last played</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Lifetime statistics</td>
+<td>Totals only: moves made, undos, restarts, hints used, levels skipped, dead ends reached, time spent playing, and your average moves over the optimum</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Awards</td>
+<td>Which of the 14 in-game awards you have earned</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Free daily hints</td>
+<td>Today's date and how many of the day's three free hints you have used</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Appearance</td>
+<td>Which board theme is applied, and which themes you own</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Levels you build or import</td>
+<td>The levels themselves — board size, piece positions, walls, the name you gave them, and whether each is a draft or published</td>
+<td><code>group:customLevels</code></td>
+</tr>
+<tr>
+<td>Leaderboard name <em>(conditional)</em></td>
+<td>The name you chose to appear under, if you ever posted a score</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Daily puzzle results</td>
+<td>For each date you have played: the date, your move count, the puzzle's optimal move count, plus your current and longest streak</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Unfinished level</td>
+<td>If you close the app mid-puzzle: the level, where the pieces are, your move count, and your recent undo steps — so reopening puts you back where you were</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Hint balance</td>
+<td>How many hints you have left</td>
+<td><code>group:progress</code></td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Sound on/off, haptics on/off, motion preference, colour-shapes accessibility mode, chosen language</td>
+<td><code>group:settings</code></td>
+</tr>
+<tr>
+<td>Purchases <em>(conditional)</em></td>
+<td>Which non-consumable products you own, so the game works offline</td>
+<td><code>group:entitlements</code></td>
+</tr>
+<tr>
+<td>Reminder <em>(conditional)</em></td>
+<td>The hour you chose for the daily reminder</td>
+<td><code>group:notifications:dailyHour</code></td>
+</tr>
+</tbody></table></div>
+<p>None of this identifies you. There is no username, no email address, no device identifier, no account, and no ID we assign to you. Two people with identical progress produce identical stored data.</p>
+<p>The game also holds the last 50 gameplay events (for example "level started") in memory to power an internal debug view. This is never written to storage and is discarded when the app closes.</p>
+<hr>
+<h2 id="3-what-leaves-your-device">3. What leaves your device</h2>
+<p>In the version described by the ACTIVE rows above, the app makes <strong>no network requests of its own</strong>. It contains no analytics SDK, no advertising SDK, no crash reporter, and no server of ours to talk to. The whole game — every level, the solver, the daily puzzle generator — is contained in the app and runs offline.</p>
+<p>The app requests the Android <code>INTERNET</code> permission. It is a standard part of the framework the app is built on and is reserved for the features in sections 5–8. Nothing in the current game uses it.</p>
+<p>There are three exceptions where data can leave your device, and all three are initiated by you or by Google rather than by us.</p>
+<h3 id="31-the-share-button">3.1 The Share button</h3>
+<p>If you tap <strong>Share</strong> on a daily puzzle result, the app hands a short block of text to your device's system share sheet or clipboard:</p>
+<pre><code>GROUP #223
+🟥🟥⬜🟦
+🟥⬛⬜🟦
+⬜⬜🟨🟦
+6 moves — optimal</code></pre>
+<p>That is the entire contents. Where it goes next is decided by you — whichever app you pick receives it, and that app's own privacy policy applies from that point. We never see it and we do not log that you shared.</p>
+<h3 id="32-android-backup">3.2 Android backup</h3>
+<p>Android may include the app's saved data in the automatic backup it makes to <strong>your own Google Drive</strong>, under your own Google account. This is a Google operating-system feature, not something we operate. We have no access to those backups and cannot read them.</p>
+<p>You control this under <strong>Settings → Google → Backup</strong> on your device. Turning Android backup off stops it.</p>
+<h3 id="33-level-share-codes">3.3 Level share codes</h3>
+<p>A level you build can be turned into a short code (42 characters for the largest board) that describes the puzzle itself — board size, where the pieces start, where the walls are. It contains nothing about you: not your name, not your device, not when you made it. The code is handed to your device's share sheet or clipboard only when you tap <strong>Share code</strong>, and where it goes next is your decision. We never see it.</p>
+<h3 id="34-google-play-itself">3.4 Google Play itself</h3>
+<p>When you install or update from Google Play, Google records that installation against your Google account and may collect crash and performance data through the Play Store and Android itself. That is Google's processing under <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google's Privacy Policy</a>, not ours, and it happens for every app on the store. We receive only aggregated, anonymous statistics from Google Play Console — installation counts, country totals, crash-rate summaries and similar — which cannot be traced back to an individual by us.</p>
+<hr>
+<h2 id="4-permissions">4. Permissions</h2>
+<div class="scroll"><table><thead><tr>
+<th>Permission</th>
+<th>Why</th>
+<th>Can you refuse?</th>
+</tr></thead><tbody>
+<tr>
+<td><code>INTERNET</code></td>
+<td>Required by the app framework; reserved for the features in sections 5–8</td>
+<td>Not a runtime prompt — Android grants it at install</td>
+</tr>
+<tr>
+<td>Vibration</td>
+<td>The gentle tick when a piece slides. Uses the standard web Vibration API and asks for nothing about you</td>
+<td>Turn haptics off in <strong>Settings</strong></td>
+</tr>
+</tbody></table></div>
+<p>The app does <strong>not</strong> request location, camera, microphone, contacts, calendar, photos, files, storage, phone state, nearby devices, or notifications. It has no code that could use them.</p>
+<hr>
+<h2 id="5-analytics-conditional">5. Analytics — <em>conditional</em></h2>
+<blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no analytics endpoint is configured and no analytics SDK is installed.</strong> This section applies only when an analytics provider is switched on. At launch, the app ships with analytics disabled and no analytics SDK bundled.</p></blockquote>
+<p>If and when analytics is enabled, we would collect <strong>gameplay telemetry only</strong>, to find out which levels are too hard and where players stop playing.</p>
+<p><strong>What would be sent:</strong> the name of the event (for example <code>level_completed</code>), and, where relevant: the level identifier, the chapter, your move count, the puzzle's optimal move count, stars earned, how long the level took, how many times you restarted or undid, and — for settings changes — which setting you changed and its new value.</p>
+<p><strong>What would never be sent:</strong> your name, email, phone number, contacts, location, IP-derived precise location, the contents of any message, or any free text you type.</p>
+<p><strong>No identifier is attached — not even a random one.</strong> Analytics events carry <strong>no installation identifier, no device identifier, no advertising ID, no session identifier and no account.</strong> The only things sent alongside an event are the app version number and a timestamp. Two people who solve the same level in the same number of moves produce byte-for-byte identical events.</p>
+<p>This is enforced in the code rather than promised in this document. The app maintains a fixed list of the properties an event may carry — level identifier, chapter, move count, optimal move count, stars, elapsed time, restart count, undo count, hint count, product identifier, ad placement, a short error code, and a settings name and value. Anything not on that list is discarded before transmission, and text values must match a short pattern of letters, digits and punctuation, so free text cannot be sent even by accident.</p>
+<p>The practical consequence is that we cannot tell one player from another, cannot count how many distinct people play, and cannot link two events to the same person or device. That is deliberate, and section 10 explains what it means for deletion requests.</p>
+<p>Your device's IP address is necessarily visible to the receiving server as a property of any internet connection, as it is for every website you visit. Nothing in the data we send is derived from it, and we do not store it against your events or use it to infer your location.</p>
+<p><strong>Provider:</strong> no analytics provider is used, acting as our processor. <strong>Legal basis (EEA/UK):</strong> consent, requested through the consent prompt described in section 7.4 before any analytics event is sent. Where consent is refused or withdrawn, no analytics events are sent. <strong>Retention:</strong> not applicable — no analytics data is collected.</p>
+<hr>
+<h2 id="6-crash-and-error-reporting-conditional">6. Crash and error reporting — <em>conditional</em></h2>
+<blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no crash reporter is installed.</strong> This section applies only when a crash reporter is switched on. At launch, none is bundled.</p></blockquote>
+<p>If enabled, a crash report would contain: the error and its stack trace, the app version, the Android version, the device model, and a short context object naming the screen or operation that failed. Like analytics events, <strong>a crash report carries no identifier we assign to you</strong> — the app configures the reporter with personally-identifying data collection switched off, and with performance tracing and session replay disabled.</p>
+<p>Crash reports are used to fix bugs and for nothing else. They are never used for advertising or profiling.</p>
+<p><strong>Provider:</strong> no crash reporting provider is used, acting as our processor. <strong>Legal basis (EEA/UK):</strong> our legitimate interest in keeping the app working (Art. 6(1)(f) GDPR), or consent where the provider's implementation requires it. <strong>Retention:</strong> not applicable — no crash data is collected.</p>
+<hr>
+<h2 id="7-advertising-conditional">7. Advertising — <em>conditional</em></h2>
+<blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no advertising SDK is installed.</strong> This section applies only when advertising is switched on. At launch, the app contains no advertising SDK and shows no ads.</p></blockquote>
+<h3 id="71-what-kind-of-ads">7.1 What kind of ads</h3>
+<p>Only <strong>rewarded video</strong>, and only when you choose it — you tap a button offering a hint in exchange for watching a video. There are no interstitials, no banners, and no ad you did not ask for. Declining costs you nothing but the hint.</p>
+<h3 id="72-who-serves-them">7.2 Who serves them</h3>
+<p>Google AdMob, and the advertising networks that bid through it. AdMob is operated by Google and its own handling of your data is governed by <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google's Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">How Google uses information from sites or apps that use our services</a>. A list of the ad partners that may receive data is maintained by Google at <a href="https://support.google.com/admob/answer/9012903" rel="noopener noreferrer" target="_blank">https://support.google.com/admob/answer/9012903</a>.</p>
+<h3 id="73-the-advertising-id">7.3 The advertising ID</h3>
+<p>To show an ad, the AdMob SDK reads your device's <strong>Android Advertising ID (AAID)</strong> — a resettable identifier that Android provides specifically for advertising. It may also collect your approximate location (derived from your IP address, at roughly city level), your device model and OS version, and information about how you interacted with the ad.</p>
+<p>The advertising ID is not your name and is under your control:</p>
+<ul><li><strong>Reset it:</strong> Settings → Google → Ads → <em>Reset advertising ID</em></li><li><strong>Delete it entirely:</strong> Settings → Google → Ads → <em>Delete advertising ID</em>. Android then returns a string of zeros to every app, and ads become non-personalised.</li><li><strong>Opt out of personalisation:</strong> Settings → Google → Ads → <em>Opt out of Ads Personalisation</em></li></ul>
+<p>When advertising is enabled, the app declares the <code>AD_ID</code> permission, as Google requires of any app that reads this identifier.</p>
+<h3 id="74-consent-in-the-eea-uk-and-switzerland">7.4 Consent in the EEA, UK and Switzerland</h3>
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, the app shows a consent form the first time it launches, built with <strong>Google's User Messaging Platform (UMP)</strong> and operating under the IAB Transparency &amp; Consent Framework. It asks separately about personalised advertising and about the other purposes your data may be used for.</p>
+<ul><li><strong>No ad request is made, and no analytics event is sent, before you answer.</strong></li><li>If you decline personalisation you still get ads, and they still pay out the hint; they are simply chosen without profiling you.</li><li>You can change your answer at any time from <strong>Settings → Privacy options</strong>, which reopens the same form.</li></ul>
+<p>Outside those regions the app follows the applicable local rules — including, for residents of US states with such laws, the right to opt out of "sale" or "sharing" of personal information for cross-context behavioural advertising. Use the same <strong>Settings → Privacy options</strong> control, or contact us at support.bakerly.apps@gmail.com.</p>
+<h3 id="75-what-we-get">7.5 What we get</h3>
+<p>We do not receive your advertising ID. Our own view of advertising is the aggregate revenue and impression reporting Google gives us in the AdMob console.</p>
+<hr>
+<h2 id="8-purchases-conditional">8. Purchases — <em>conditional</em></h2>
+<blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no billing SDK is installed.</strong> This section applies only when in-app purchases are switched on. At launch there is nothing to buy.</p></blockquote>
+<p>Purchases are processed entirely by <strong>Google Play Billing</strong>. Payment happens inside Google's own interface.</p>
+<p><strong>We never see your payment details.</strong> We do not receive, store, or have any way to obtain your card number, bank details, billing address, or full name. Google is the merchant of record.</p>
+<p>What the app receives from Google is a purchase token confirming that a specific product was bought and is still valid, so it can unlock what you paid for. The app stores the resulting entitlement (for example, "ads removed") on your device so it survives a restart.</p>
+<p>Your purchase history, refunds and subscription controls live in your Google Play account: <a href="https://play.google.com/store/account" rel="noopener noreferrer" target="_blank">https://play.google.com/store/account</a>. Refunds are handled under <a href="https://support.google.com/googleplay/answer/2479637" rel="noopener noreferrer" target="_blank">Google Play's refund policy</a>.</p>
+<p><strong>Restore purchases</strong> re-queries Google Play for what your Google account already owns. It does not create any record with us.</p>
+<hr>
+<h2 id="9-children">9. Children</h2>
+<p>The game contains no violence, no chat, no user-generated content, no social features, and no external links other than those in this policy. It is suitable for all ages by content.</p>
+<p>However, it is <strong>not directed to children</strong> within the meaning of COPPA, the GDPR's rules on children's data, or Google Play's Families policy, and it is not enrolled in Google Play's Designed for Families programme. We do not knowingly collect personal information from anyone under 13.</p>
+<p>This matters for one practical reason: once advertising (section 7) is switched on, the app uses standard advertising infrastructure that is not permitted in apps aimed at children. If you are a parent and your child uses this app, consider deleting the device's advertising ID (section 7.3), which turns off ad personalisation across every app on the device.</p>
+<p>If you believe a child has provided personal information to us, contact support.bakerly.apps@gmail.com and we will delete it.</p>
+<hr>
+<h2 id="10-retention-and-deletion">10. Retention and deletion</h2>
+<div class="scroll"><table><thead><tr>
+<th>Data</th>
+<th>Where it lives</th>
+<th>How long</th>
+<th>How to delete it</th>
+</tr></thead><tbody>
+<tr>
+<td>Progress and settings</td>
+<td>Your device</td>
+<td>Until you delete it</td>
+<td>Uninstall the app, or <strong>Settings → Apps → GROUP → Storage → Clear data</strong></td>
+</tr>
+<tr>
+<td>Android backup copy</td>
+<td>Your Google Drive</td>
+<td>Per Google's backup retention (a backup is deleted after the device has been inactive for a period set by Google, and when you delete it manually)</td>
+<td>Settings → Google → Backup, or Drive → Backups</td>
+</tr>
+<tr>
+<td>Analytics events <em>(conditional)</em></td>
+<td>no analytics provider is used</td>
+<td>not applicable — no analytics data is collected</td>
+<td>Not individually deletable — see below. Stop future events by turning analytics off in <strong>Settings</strong>, or by withdrawing consent</td>
+</tr>
+<tr>
+<td>Crash reports <em>(conditional)</em></td>
+<td>no crash reporting provider is used</td>
+<td>not applicable — no crash data is collected</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Advertising data <em>(conditional)</em></td>
+<td>Google and its ad partners</td>
+<td>Per Google's policies</td>
+<td>Delete or reset your advertising ID (section 7.3)</td>
+</tr>
+<tr>
+<td>Purchase records <em>(conditional)</em></td>
+<td>Google</td>
+<td>Per Google's policies and applicable tax law</td>
+<td>Via your Google Play account</td>
+</tr>
+</tbody></table></div>
+<p><strong>There is no account to delete</strong>, because there is no account. Uninstalling the app removes everything held on your device.</p>
+<h3 id="why-we-cannot-delete-individual-analytics-or-crash-records">Why we cannot delete individual analytics or crash records</h3>
+<p>Because those records carry <strong>no identifier of any kind</strong> (section 5), there is nothing in them that points back to you, and nothing we could match a deletion request against. We are not withholding a lookup — the lookup does not exist. If you emailed us asking us to delete your events, we would have no honest way to find them, and we will not ask you for extra personal information in order to try, because collecting identifying data to service a privacy request would make the situation worse rather than better.</p>
+<p>What you can actually do, and what it achieves:</p>
+<ul><li><strong>Withdraw consent</strong> via <strong>Settings → Privacy options</strong> (section 7.4). No analytics event is sent while consent is refused or withdrawn, and anything already queued on your device is discarded rather than sent later.</li><li><strong>Uninstall the app.</strong> Everything on your device goes with it, and nothing further is ever sent.</li><li>Records already received are deleted by our provider at the end of the retention period stated above, without any action from you.</li></ul>
+<blockquote><p><strong>Maintenance note (delete this block before publishing):</strong> the two controls referenced above — the in-app consent/analytics toggle in <strong>Settings → Privacy options</strong> (also promised in §7.4 and §11) — do <strong>not</strong> exist in the UI yet. The service layer supports them (<code>setAnalyticsEnabled</code>, <code>requestConsent</code>), but nothing calls them. They must be wired into the Settings sheet <strong>before</strong> analytics or ads are switched to ACTIVE, or this policy describes a control the app does not have.</p></blockquote>
+<p>If a future version ever does attach an identifier — or introduce an account — this policy will be updated <strong>before</strong> that version ships, and both an in-app and a web deletion route will be provided, as Google Play requires.</p>
+<hr>
+<h2 id="11-your-rights">11. Your rights</h2>
+<p>Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal data, to object to or restrict processing, to withdraw consent, and to complain to a data protection authority.</p>
+<p>In the ACTIVE configuration these rights have little to bite on: we hold nothing about you.</p>
+<p>Where sections 5–8 are active, the honest position is the one set out in section 10: analytics and crash records carry no identifier, so we hold no personal data about you to access, correct, export or delete, and no way to connect any record to you even if you asked us to. A subject access request will be answered truthfully — that we hold nothing identifiable — rather than with a file we cannot actually produce. The rights that <em>do</em> have practical effect are the right to withdraw consent (<strong>Settings → Privacy options</strong>, section 7.4) and, for advertising, the controls Google provides over your advertising ID (section 7.3).</p>
+<p>For anything else, email support.bakerly.apps@gmail.com. We respond within 30 days. We will not ask you for identifying information in order to service a privacy request.</p>
+<p>EEA/UK residents may complain to their national supervisory authority; a list is at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" rel="noopener noreferrer" target="_blank">https://edpb.europa.eu/about-edpb/about-edpb/members_en</a>. We are established in Germany, within the EU, so no Article 27 representative is required. There is no statutory obligation to appoint a Data Protection Officer for processing of this scale.</p>
+<hr>
+<h2 id="12-international-transfers">12. International transfers</h2>
+<p>Data described in the ACTIVE sections does not leave your device, so no transfer occurs.</p>
+<p>Where sections 5–8 are active, our providers may process data in the United States and other countries. Those transfers rely on the European Commission's standard contractual clauses or an applicable adequacy decision, as set out in each provider's terms.</p>
+<hr>
+<h2 id="13-security">13. Security</h2>
+<p>On-device data is stored in the app's private storage area, which Android isolates from other apps. Where the conditional sections are active, all traffic to our providers is encrypted in transit with TLS.</p>
+<p>No system is perfectly secure. Given that the app holds no personal data, the realistic worst case is that someone with physical access to your unlocked phone learns which puzzle levels you have solved.</p>
+<hr>
+<h2 id="14-changes-to-this-policy">14. Changes to this policy</h2>
+<p>We will update this page when the app changes, and update the <strong>Last updated</strong> date. Material changes — in particular switching on any of sections 5 through 8 — will be announced in the app before they take effect, and where consent is required we will ask again rather than assume.</p>
+<p>Previous versions are available on request.</p>
+<hr>
+<h2 id="15-contact">15. Contact</h2>
+<p><strong>Omar Diar Bakerly (trading as Bakerly Apps)</strong><br>Herwarthstraße 63, 47137 Duisburg<br>Germany<br>Email: <strong>support.bakerly.apps@gmail.com</strong></p>
+<p>For anything privacy-related, email is the fastest route and reaches a person.</p>
+<hr>
+<h2 id="16-provider-identification-anbieterkennzeichnung-impressum">16. Provider identification / Anbieterkennzeichnung (Impressum)</h2>
+<p>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz):</p>
+<p><strong>Omar Diar Bakerly (trading as Bakerly Apps)</strong><br>Herwarthstraße 63, 47137 Duisburg<br>Germany</p>
+<p>E-Mail: <strong>support.bakerly.apps@gmail.com</strong></p>
+<p>Verantwortlich für den Inhalt: Omar Diar Bakerly (trading as Bakerly Apps), Anschrift wie oben.</p>
+<p><em>Responsible provider of this app and of this page: the person and address named above. This is the German statutory provider identification and repeats the contact details already given in section 15.</em></p>
+<p><strong>EU-Streitschlichtung:</strong> Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr/" rel="noopener noreferrer" target="_blank">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+</body>
+</html>
