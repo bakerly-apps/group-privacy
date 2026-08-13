@@ -1,0 +1,9 @@
+{
+  "_comment": "Driftile update gate. The app reads this on every launch and on every return to the foreground. minVersion blocks the game outright; latestVersion only prompts. Raise latestVersion ONLY after the build is live on Play, or players tap Update and find nothing there. See docs/UPDATE_GATE.md in the app repo.",
+  "android": {
+    "package": "com.bakerly.driftile",
+    "minVersion": "1.0.0",
+    "latestVersion": "1.0.1",
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.bakerly.driftile"
+  }
+}
