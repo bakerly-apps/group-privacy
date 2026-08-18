@@ -162,6 +162,11 @@
 <td><code>group:progress</code></td>
 </tr>
 <tr>
+<td>Daily solver code</td>
+<td>A random value, so two phones on one connection each count once toward "how many solved today". Identifies nothing and unlocks nothing</td>
+<td><code>daily:device</code></td>
+</tr>
+<tr>
 <td>Free daily hints</td>
 <td>Today's date and how many of the day's three free hints you have used</td>
 <td><code>group:progress</code></td>
@@ -323,7 +328,9 @@
 <p>We keep the swipes so the server can check that they really do solve that day's board, and so a result can be re-checked later if the checking itself is ever found to be wrong.</p>
 <p><strong>If you are signed out, that is all</strong> — no name, no account, no device identifier, and nothing that links one day's result to another's.</p>
 <p><strong>If you are signed in, the result is recorded against your account</strong> for as long as the row stays attributable, currently seven days, so that deleting your account can take it with it. This is a deliberate trade: it was previously tied to a code derived from your network address instead, which made everyone in one household, office or school count as a single player — the second person to solve was folded into the first and never appeared.</p>
-<p>For signed-out results, our server derives a short code from your IP address, mixed with a secret and with the date. It exists for one purpose: so that one person counts once in "how many people solved today's puzzle", however many times they play it. Because the date is part of it, the code is different every day and two days of results cannot be connected to each other. The code is stored, never the address it came from, and it is replaced with random data on a daily schedule — the same nightly purge that clears the account link above.</p>
+<p>For signed-out results, our server derives a short code from your IP address <strong>and a random code your device generated</strong>, mixed with a secret and with the date. It exists for one purpose: so that one person counts once in "how many people solved today's puzzle", however many times they play it.</p>
+<p>The device part was added because the address alone is not one person. Two phones in a house share an address, and on a mobile network a great many strangers share one — so without it, everybody behind a single connection was counted as a single player and the number was quietly too low. The random code identifies nothing and unlocks nothing; it exists so that two phones are two.</p>
+<p>Because the date is part of it, the code is different every day and two days of results cannot be connected to each other. What is stored is the mixed result, never the address it came from, and it is replaced with random data on a daily schedule — the same nightly purge that clears the account link above.</p>
 <p>Your IP address is also used, in the same hashed and peppered form, to rate-limit abuse of the server. It is never stored raw and we cannot recover it.</p>
 <p>This is the figure shown on the daily screen — how many people solved today — and it is the only reason any of it is collected. There is no leaderboard, no ranking, and no comparison between players.</p>
 <p>If you are offline, the daily puzzle cannot be fetched and nothing is sent.</p>
