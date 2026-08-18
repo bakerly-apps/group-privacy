@@ -57,7 +57,7 @@
 </head>
 <body>
 <h1 id="privacy-policy-driftile">Privacy Policy — Driftile</h1>
-<p><strong>Effective date:</strong> 2026-08-12<br><strong>Last updated:</strong> 2026-08-12<br><strong>Published at:</strong> https://bakerly-apps.github.io/driftile-privacy/<br><strong>Applies to:</strong> the Android application <code>com.bakerly.driftile</code> distributed on Google Play, and the web version of the same game.</p>
+<p><strong>Effective date:</strong> 2026-08-18<br><strong>Last updated:</strong> 2026-08-18<br><strong>Published at:</strong> https://bakerly-apps.github.io/driftile-privacy/<br><strong>Applies to:</strong> the Android application <code>com.bakerly.driftile</code> distributed on Google Play, and the web version of the same game.</p>
 <p>This policy is written by Omar Diar Bakerly (trading as Bakerly Apps) ("we", "us"), Herwarthstraße 63, 47137 Duisburg, Germany.</p>
 <hr>
 <h2 id="feature-status">Feature status</h2>
@@ -73,9 +73,24 @@
 <td><a href="#2-what-the-app-stores-on-your-device">2</a></td>
 </tr>
 <tr>
+<td>Cloud save — your progress, your levels and your purchases copied to your account</td>
+<td><strong>ACTIVE</strong> (only while you are signed in)</td>
+<td><a href="#35-signing-in-and-cloud-save">3.5</a></td>
+</tr>
+<tr>
 <td>Sharing your daily result</td>
 <td><strong>ACTIVE</strong> (only when you tap Share)</td>
 <td><a href="#31-the-share-button">3.1</a></td>
+</tr>
+<tr>
+<td>Signing in with an email address</td>
+<td><strong>ACTIVE</strong> (only if you choose to; the game is fully playable without)</td>
+<td><a href="#35-signing-in-and-cloud-save">3.5</a></td>
+</tr>
+<tr>
+<td>Publishing a level to Community</td>
+<td><strong>ACTIVE</strong> (only when you publish one)</td>
+<td><a href="#36-community-levels">3.6</a></td>
 </tr>
 <tr>
 <td>Android system backup</td>
@@ -89,8 +104,13 @@
 </tr>
 <tr>
 <td>Crash reporting</td>
-<td><strong>NOT ACTIVE</strong> — no crash reporter is installed</td>
-<td><a href="#6-crash-and-error-reporting--conditional">6</a></td>
+<td><strong>ACTIVE</strong> — Sentry, in every release build</td>
+<td><a href="#6-crash-and-error-reporting">6</a></td>
+</tr>
+<tr>
+<td>Rating and reporting a community level</td>
+<td><strong>ACTIVE</strong> (only when you do it)</td>
+<td><a href="#36-community-levels">3.6</a></td>
 </tr>
 <tr>
 <td>Advertising (Google AdMob, rewarded video)</td>
@@ -111,11 +131,16 @@
 <blockquote><p><strong>Maintenance note:</strong> re-publish this document at the same URL on the same day any conditional feature ships. A privacy policy that lags the build is itself a Google Play policy violation. The four conditional sections are written in advance precisely so that switching one on is an edit to one table row rather than a rewrite.</p></blockquote>
 <hr>
 <h2 id="1-the-short-version">1. The short version</h2>
-<p>The game runs entirely on your device. It does not have accounts, does not ask who you are, and — in the version described by the ACTIVE rows above — does not send anything about you to us or to anyone else. Your progress is a small file on your phone. Deleting the app deletes it.</p>
-<p>We do not sell personal data. We have never sold personal data.</p>
+<p><strong>You can play the whole game without an account and without telling us anything.</strong> The campaign, the builder, Curiosities and the solver all run on your device, offline. If that is how you use Driftile, the only things that ever reach us are today's daily puzzle result and a crash report if the app breaks — neither of which carries your name, your email or any identifier that links one to another.</p>
+<p><strong>If you choose to sign in, that changes, and it is worth reading section 3.5.</strong> An account exists so your game follows you to another phone, and making that work means keeping a copy of it on our server: your email address, and the progress the app would otherwise hold only on your device — every level you have solved, your best moves, your stars and streaks, your play statistics, the hints and jokers you own, the levels you have built (including the ones you never published), and your settings.</p>
+<p><strong>Publishing a level to Community is public.</strong> The board and the nickname on your profile are shown to everyone who browses it.</p>
+<p>You can delete all of it from inside the app — <strong>Settings → Delete account</strong> — and uninstalling removes what is on the phone.</p>
+<p>We do not sell personal data. We have never sold personal data. We do not show ads and there is no analytics SDK in the app.</p>
 <hr>
 <h2 id="2-what-the-app-stores-on-your-device">2. What the app stores on your device</h2>
-<p>All of the following is written to your device's local storage by the app and stays there. It is not transmitted to us.</p>
+<p>All of the following is written to your device's local storage by the app.</p>
+<p><strong>If you are not signed in, it stays there and is not transmitted to us.</strong></p>
+<p><strong>If you are signed in, most of it is also copied to your account on our server</strong>, because that is what cloud save is — the point of an account is that this data survives losing the phone. Section 3.5 lists exactly which of these rows travel and which never do.</p>
 <div class="scroll"><table><thead><tr>
 <th>What</th>
 <th>Contains</th>
@@ -186,14 +211,122 @@
 <td>The hour you chose for the daily reminder</td>
 <td><code>group:notifications:dailyHour</code></td>
 </tr>
+<tr>
+<td>Sign-in <em>(conditional)</em></td>
+<td>Your email address, your account id, and the tokens that keep you signed in — written only once you sign in, and cleared when you sign out</td>
+<td><code>group:auth-session</code></td>
+</tr>
+<tr>
+<td>Guest id</td>
+<td>A random id this app makes up for itself so it can tell one <em>signed-out</em> session from another. Never sent anywhere</td>
+<td><code>group:auth-guest-id</code></td>
+</tr>
+<tr>
+<td>Whose game this is <em>(conditional)</em></td>
+<td>The account id the local game belongs to, so signing in as somebody else does not merge two people's progress</td>
+<td><code>group:player-owner</code></td>
+</tr>
+<tr>
+<td>Community key</td>
+<td>A random id this app makes up, which is what proves a level in Community is yours and which your ratings count under</td>
+<td><code>group:community:key</code></td>
+</tr>
+<tr>
+<td>Your ratings</td>
+<td>Which levels you rated and what you gave them, so the app can show you your own vote</td>
+<td><code>group:community:ratings</code></td>
+</tr>
+<tr>
+<td>Your Community results</td>
+<td>Your best result on each Community level you have finished</td>
+<td><code>group:community:results</code></td>
+</tr>
+<tr>
+<td>Results not yet sent</td>
+<td>Results waiting for a connection, so solving offline is not lost</td>
+<td><code>group:community:pending</code></td>
+</tr>
+<tr>
+<td>Today's puzzle</td>
+<td>The board for today, so the Daily works without a connection</td>
+<td><code>group:daily-puzzle</code></td>
+</tr>
+<tr>
+<td>Scores already sent</td>
+<td>Which of the last two days' results have reached the leaderboard, so the same score is not sent twice</td>
+<td><code>group:daily-submitted</code></td>
+</tr>
+<tr>
+<td>Update prompt</td>
+<td>Which version you dismissed an update prompt for, and when</td>
+<td><code>group:update-dismissed</code></td>
+</tr>
+<tr>
+<td>Explanations read</td>
+<td>Which mechanic explanations you have already been shown</td>
+<td><code>group:driftile:twist-hints-seen</code>, <code>group:driftile:twist-hints-off</code></td>
+</tr>
+<tr>
+<td>Unreadable data</td>
+<td>If any of the above cannot be read back, one copy of the raw value is kept so a future version can try to recover it</td>
+<td><code>group:damaged:*</code></td>
+</tr>
 </tbody></table></div>
-<p>None of this identifies you. There is no username, no email address, no device identifier, no account, and no ID we assign to you. Two people with identical progress produce identical stored data.</p>
+<p>Two of these are ids we make up: the guest id and the community key. They are random, they are not derived from anything about you or your phone, and neither is ever shown to another player. The community key is the only one that leaves the device, and only as a hash — it is what lets you take down a level you published from the device you published it on.</p>
+<p>None of this identifies you <strong>unless you choose to sign in</strong>. Without an account there is no username, no email address, no device identifier and no ID we assign to you, and two people with identical progress produce identical stored data. Signing in is optional and the whole game works without it — see 3.5.</p>
 <p>The game also holds the last 50 gameplay events (for example "level started") in memory to power an internal debug view. This is never written to storage and is discarded when the app closes.</p>
 <hr>
 <h2 id="3-what-leaves-your-device">3. What leaves your device</h2>
-<p>In the version described by the ACTIVE rows above, the app makes <strong>no network requests of its own</strong>. It contains no analytics SDK, no advertising SDK, no crash reporter, and no server of ours to talk to. The whole game — every level, the solver, the daily puzzle generator — is contained in the app and runs offline.</p>
-<p>The app requests the Android <code>INTERNET</code> permission. It is a standard part of the framework the app is built on and is reserved for the features in sections 5–8. Nothing in the current game uses it.</p>
-<p>There are three exceptions where data can leave your device, and all three are initiated by you or by Google rather than by us.</p>
+<p>The campaign, Curiosities and the solver are contained in the app and run offline. These things reach our server, and each has its own subsection below:</p>
+<div class="scroll"><table><thead><tr>
+<th>What</th>
+<th>When</th>
+<th>Section</th>
+</tr></thead><tbody>
+<tr>
+<td>The daily puzzle, and your result for it</td>
+<td>Whenever you open or solve the daily</td>
+<td><a href="#30-the-daily-puzzle">3.0</a></td>
+</tr>
+<tr>
+<td>Crash reports</td>
+<td>Only if the app breaks</td>
+<td><a href="#6-crash-and-error-reporting">6</a></td>
+</tr>
+<tr>
+<td>Your email address</td>
+<td>Only if you sign in</td>
+<td><a href="#35-signing-in-and-cloud-save">3.5</a></td>
+</tr>
+<tr>
+<td>Cloud save — progress, built levels, purchases, settings</td>
+<td>Continuously, but <strong>only while signed in</strong></td>
+<td><a href="#35-signing-in-and-cloud-save">3.5</a></td>
+</tr>
+<tr>
+<td>A published level, its title and your nickname</td>
+<td>Only when you publish one</td>
+<td><a href="#36-community-levels">3.6</a></td>
+</tr>
+<tr>
+<td>A rating, a report, or the fact that a level was played</td>
+<td>Only when you do it</td>
+<td><a href="#36-community-levels">3.6</a></td>
+</tr>
+</tbody></table></div>
+<p>Of those, only the daily puzzle and crash reports happen without you asking for them and without an account. Everything else is either something you started or a consequence of choosing to sign in.</p>
+<p>The app requests the Android <code>INTERNET</code> permission and uses it for the above. The features in sections 5, 7 and 8 would also use it if they were switched on.</p>
+<h3 id="30-the-daily-puzzle">3.0 The daily puzzle</h3>
+<p>The daily puzzle is fetched from our server rather than generated on your phone, so opening it makes a request. That request carries nothing about you: it asks for today's board and nothing else.</p>
+<p><strong>When you solve it, your result is sent automatically — you are not asked first.</strong> What is sent is:</p>
+<ul><li>the date of the puzzle</li><li>the number of moves you used, and the swipes that produced them</li></ul>
+<p>We keep the swipes so the server can check that they really do solve that day's board, and so a result can be re-checked later if the checking itself is ever found to be wrong.</p>
+<p><strong>If you are signed out, that is all</strong> — no name, no account, no device identifier, and nothing that links one day's result to another's.</p>
+<p><strong>If you are signed in, the result is recorded against your account</strong> for as long as the row stays attributable, currently seven days, so that deleting your account can take it with it. This is a deliberate trade: it was previously tied to a code derived from your network address instead, which made everyone in one household, office or school count as a single player — the second person to solve was folded into the first and never appeared.</p>
+<p>For signed-out results, our server derives a short code from your IP address, mixed with a secret and with the date. It exists for one purpose: so that one person counts once in "how many people solved today's puzzle", however many times they play it. Because the date is part of it, the code is different every day and two days of results cannot be connected to each other. The code is stored, never the address it came from, and it is replaced with random data on a daily schedule — the same nightly purge that clears the account link above.</p>
+<p>Your IP address is also used, in the same hashed and peppered form, to rate-limit abuse of the server. It is never stored raw and we cannot recover it.</p>
+<p>This is the figure shown on the daily screen — how many people solved today — and it is the only reason any of it is collected. There is no leaderboard, no ranking, and no comparison between players.</p>
+<p>If you are offline, the daily puzzle cannot be fetched and nothing is sent.</p>
 <h3 id="31-the-share-button">3.1 The Share button</h3>
 <p>If you tap <strong>Share</strong> on a daily puzzle result, the app hands a short block of text to your device's system share sheet or clipboard:</p>
 <pre><code>Driftile #223
@@ -209,6 +342,25 @@
 <p>A level you build can be turned into a short code (42 characters for the largest board) that describes the puzzle itself — board size, where the pieces start, where the walls are. It contains nothing about you: not your name, not your device, not when you made it. The code is handed to your device's share sheet or clipboard only when you tap <strong>Share code</strong>, and where it goes next is your decision. We never see it.</p>
 <h3 id="34-google-play-itself">3.4 Google Play itself</h3>
 <p>When you install or update from Google Play, Google records that installation against your Google account and may collect crash and performance data through the Play Store and Android itself. That is Google's processing under <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google's Privacy Policy</a>, not ours, and it happens for every app on the store. We receive only aggregated, anonymous statistics from Google Play Console — installation counts, country totals, crash-rate summaries and similar — which cannot be traced back to an individual by us.</p>
+<hr>
+<h3 id="35-signing-in-and-cloud-save">3.5 Signing in and cloud save</h3>
+<p>You can play everything — the campaign, the daily puzzle, Curiosities, the builder — without an account. Signing in is entirely optional and exists for one reason: so your progress follows you to another device.</p>
+<p>If you do sign in, you give us <strong>an email address</strong>. We send it to Supabase, our server provider, who mails you a sign-in code through Resend, our mail provider. We hold the address so we can recognise you next time, and it is not used for anything else — no newsletters, no marketing, and it is never sold or shared.</p>
+<p>You may also sign in with Google, in which case Google tells us the email address on the account you pick, and nothing else.</p>
+<p><strong>What cloud save copies to our server.</strong> From the moment you are signed in, the app keeps your account in step with your device. What is held there is:</p>
+<ul><li>every level you have completed, your best move count for each, your stars, how many times you played it, and whether you solved it without an undo or a hint</li><li>the highest level you have unlocked and the one you last played, including the half-finished position on the board if you left mid-level</li><li>your daily streak, your longest streak and your daily results</li><li>your lifetime statistics — total moves, undos, restarts, hints used, levels skipped, dead ends reached and time spent playing</li><li>which of the in-game awards you have earned</li><li>how many hints and jokers you own, and how many you have ever earned and spent</li><li>what you have bought, so a purchase is not lost with the phone</li><li>your settings: appearance, board style, tile material, sound and haptics</li><li><strong>every level you have built, including drafts you have never published</strong>, and every community level you have played, with your best move count on it</li></ul>
+<p>That last one surprises people, so it is stated plainly: an unpublished draft is still copied to your account. It is not visible to anyone else and it is not published by being synced — it is there so that building a level on one phone and finding it on another works at all. Deleting the level deletes it from the account too.</p>
+<p><strong>What is never sent.</strong> Your nickname is only sent if you publish a level or rate one. Nothing about the device itself — no advertising ID, no phone model, no network operator, no contacts, no location.</p>
+<p><strong>Two people, one phone.</strong> If somebody else signs in on your device, the game clears the previous player's data from the phone first rather than merging the two accounts together. Their game stays safe on their own account.</p>
+<p><strong>Legal basis (EEA/UK):</strong> performance of a contract you asked for (Art. 6(1)(b) GDPR) — you cannot have progress that follows you between devices without something to recognise you by.</p>
+<p><strong>Deleting it:</strong> <strong>Settings → Delete account</strong>. This removes the account, the email address, the cloud save and everything listed above. It also takes down any levels you published, because after the account is gone there is nothing left to prove they were yours, and it detaches your daily results. The copy on the phone in your hand is deliberately left alone, so deleting the account does not delete the game you are in the middle of.</p>
+<p>You can also request deletion without installing the app — see section 11.</p>
+<h3 id="36-community-levels">3.6 Community levels</h3>
+<p>Publishing a level sends it to our server so other players can find it. What is sent is the level itself — board size, piece positions, walls — along with the title you gave it and the nickname on your profile, which is shown to everyone who sees the level. <strong>Choose a nickname you are comfortable being public</strong>; it does not have to be your name, and the game does not ask for your name anywhere.</p>
+<p>Rating or reporting a level sends the level's id, your rating or the reason you picked, and a random code generated on your device. That code exists so that one device counts once — it stops the same person rating a level fifty times. It is tied to no account and to nothing else about you, and it is reset if you delete the app's data.</p>
+<p>Playing a level from Community also tells the server that it was played, so the play count is right. That request says which level, and nothing about who.</p>
+<p><strong>Drafts are not published.</strong> A level only becomes visible to other players when you tap Publish. If you are signed in, drafts are still copied to your account as part of cloud save (section 3.5) — that is a private backup, not a listing.</p>
+<p><strong>Taking it back down:</strong> a published level's ⋯ menu has <em>Take down</em>. Deleting the level from your device takes it down too.</p>
 <hr>
 <h2 id="4-permissions">4. Permissions</h2>
 <div class="scroll"><table><thead><tr>
@@ -240,11 +392,13 @@
 <p>Your device's IP address is necessarily visible to the receiving server as a property of any internet connection, as it is for every website you visit. Nothing in the data we send is derived from it, and we do not store it against your events or use it to infer your location.</p>
 <p><strong>Provider:</strong> no analytics provider is used, acting as our processor. <strong>Legal basis (EEA/UK):</strong> consent, requested through the consent prompt described in section 7.4 before any analytics event is sent. Where consent is refused or withdrawn, no analytics events are sent. <strong>Retention:</strong> not applicable — no analytics data is collected.</p>
 <hr>
-<h2 id="6-crash-and-error-reporting-conditional">6. Crash and error reporting — <em>conditional</em></h2>
-<blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no crash reporter is installed.</strong> This section applies only when a crash reporter is switched on. At launch, none is bundled.</p></blockquote>
-<p>If enabled, a crash report would contain: the error and its stack trace, the app version, the Android version, the device model, and a short context object naming the screen or operation that failed. Like analytics events, <strong>a crash report carries no identifier we assign to you</strong> — the app configures the reporter with personally-identifying data collection switched off, and with performance tracing and session replay disabled.</p>
+<h2 id="6-crash-and-error-reporting">6. Crash and error reporting</h2>
+<blockquote><p><strong>Status: ACTIVE.</strong> Every release build reports crashes. This is not something you switch on, and at present it is not something you can switch off.</p></blockquote>
+<p>When the app crashes or hits an unexpected error, a report is sent containing: the error and its stack trace, the app version, the Android version, the device model, and a short context object naming the screen or operation that failed.</p>
+<p><strong>A crash report carries no identifier we assign to you.</strong> The reporter is configured with personally-identifying data collection switched off — which means your IP address is not attached to the report and no user record is created — and with performance tracing and session replay disabled.</p>
 <p>Crash reports are used to fix bugs and for nothing else. They are never used for advertising or profiling.</p>
-<p><strong>Provider:</strong> no crash reporting provider is used, acting as our processor. <strong>Legal basis (EEA/UK):</strong> our legitimate interest in keeping the app working (Art. 6(1)(f) GDPR), or consent where the provider's implementation requires it. <strong>Retention:</strong> not applicable — no crash data is collected.</p>
+<blockquote><p>A stack trace can pick up incidental detail — a file path, a device name — that nobody intended to send. We do not attach custom keys, breadcrumbs or user identifiers, which is where that normally comes from.</p></blockquote>
+<p><strong>Provider:</strong> Sentry, acting as our processor. <strong>Legal basis (EEA/UK):</strong> our legitimate interest in keeping the app working (Art. 6(1)(f) GDPR), or consent where the provider's implementation requires it. <strong>Retention:</strong> 90 days, Sentry’s default for error events.</p>
 <hr>
 <h2 id="7-advertising-conditional">7. Advertising — <em>conditional</em></h2>
 <blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no advertising SDK is installed.</strong> This section applies only when advertising is switched on. At launch, the app contains no advertising SDK and shows no ads.</p></blockquote>
@@ -292,6 +446,18 @@
 <td>Uninstall the app, or <strong>Settings → Apps → Driftile → Storage → Clear data</strong></td>
 </tr>
 <tr>
+<td>Cloud save — progress, built levels, purchases, settings <em>(signed in only)</em></td>
+<td>Supabase (our server), Frankfurt</td>
+<td>Until you delete your account</td>
+<td><strong>Settings → Delete account</strong></td>
+</tr>
+<tr>
+<td>Email address <em>(signed in only)</em></td>
+<td>Supabase (our server), Frankfurt; in transit through Resend</td>
+<td>Until you delete your account</td>
+<td><strong>Settings → Delete account</strong></td>
+</tr>
+<tr>
 <td>Android backup copy</td>
 <td>Your Google Drive</td>
 <td>Per Google's backup retention (a backup is deleted after the device has been inactive for a period set by Google, and when you delete it manually)</td>
@@ -304,10 +470,28 @@
 <td>Not individually deletable — see below. Stop future events by turning analytics off in <strong>Settings</strong>, or by withdrawing consent</td>
 </tr>
 <tr>
-<td>Crash reports <em>(conditional)</em></td>
-<td>no crash reporting provider is used</td>
-<td>not applicable — no crash data is collected</td>
-<td>As above</td>
+<td>Crash reports</td>
+<td>Sentry</td>
+<td>90 days, Sentry’s default for error events</td>
+<td>Not individually deletable — a report carries nothing that identifies which are yours</td>
+</tr>
+<tr>
+<td>Daily results</td>
+<td>Supabase (our server), Frankfurt</td>
+<td>The link to your account, or to the code derived from your address, is replaced with random bytes after seven days by a nightly purge; the anonymous result stays in the day's totals</td>
+<td>Delete your account in <strong>Settings</strong> within that window</td>
+</tr>
+<tr>
+<td>Published levels, their titles and the nickname on them</td>
+<td>Supabase (our server), Frankfurt</td>
+<td>Indefinitely, while you leave the level published</td>
+<td><em>Take down</em> in the level's ⋯ menu, delete the level, or delete your account</td>
+</tr>
+<tr>
+<td>Ratings and reports you submitted</td>
+<td>Supabase (our server), Frankfurt</td>
+<td>Indefinitely, tied to a random per-device code and to no account</td>
+<td>Clearing the app's data resets the code; the anonymous rating remains in the level's average</td>
 </tr>
 <tr>
 <td>Advertising data <em>(conditional)</em></td>
@@ -322,7 +506,7 @@
 <td>Via your Google Play account</td>
 </tr>
 </tbody></table></div>
-<p><strong>There is no account to delete</strong>, because there is no account. Uninstalling the app removes everything held on your device.</p>
+<p><strong>If you never sign in, there is no account to delete.</strong> Uninstalling the app removes everything held on your device. If you did sign in, <strong>Settings → Delete account</strong> removes the account and the data held against it; levels you published are taken down from Community with it.</p>
 <h3 id="why-we-cannot-delete-individual-analytics-or-crash-records">Why we cannot delete individual analytics or crash records</h3>
 <p>Because those records carry <strong>no identifier of any kind</strong> (section 5), there is nothing in them that points back to you, and nothing we could match a deletion request against. We are not withholding a lookup — the lookup does not exist. If you emailed us asking us to delete your events, we would have no honest way to find them, and we will not ask you for extra personal information in order to try, because collecting identifying data to service a privacy request would make the situation worse rather than better.</p>
 <p>What you can actually do, and what it achieves:</p>
@@ -332,18 +516,49 @@
 <hr>
 <h2 id="11-your-rights">11. Your rights</h2>
 <p>Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal data, to object to or restrict processing, to withdraw consent, and to complain to a data protection authority.</p>
-<p>In the ACTIVE configuration these rights have little to bite on: we hold nothing about you.</p>
-<p>Where sections 5–8 are active, the honest position is the one set out in section 10: analytics and crash records carry no identifier, so we hold no personal data about you to access, correct, export or delete, and no way to connect any record to you even if you asked us to. A subject access request will be answered truthfully — that we hold nothing identifiable — rather than with a file we cannot actually produce. The rights that <em>do</em> have practical effect are the right to withdraw consent (<strong>Settings → Privacy options</strong>, section 7.4) and, for advertising, the controls Google provides over your advertising ID (section 7.3).</p>
-<p>For anything else, email support.bakerly.apps@gmail.com. We respond within 30 days. We will not ask you for identifying information in order to service a privacy request.</p>
+<p><strong>If you have never signed in, we hold nothing about you</strong> and there is nothing to access, correct, export or delete. Crash reports carry no identifier, so we could not find yours among them even if you asked (see below).</p>
+<p><strong>If you have an account</strong>, those rights bite on everything listed in section 3.5, and the practical routes are:</p>
+<div class="scroll"><table><thead><tr>
+<th>Right</th>
+<th>How</th>
+</tr></thead><tbody>
+<tr>
+<td>Access and portability</td>
+<td>Email support.bakerly.apps@gmail.com from the address on the account and we will send you the cloud save as a file</td>
+</tr>
+<tr>
+<td>Correction</td>
+<td>Most of it is a record of how you played and is corrected by playing; your nickname is editable in <strong>Profile</strong></td>
+</tr>
+<tr>
+<td>Deletion</td>
+<td><strong>Settings → Delete account</strong>, in the app, immediately and without asking us</td>
+</tr>
+<tr>
+<td>Deletion without the app</td>
+<td>Email support.bakerly.apps@gmail.com from the address on the account. Required by Google Play, and available at https://bakerly-apps.github.io/driftile-privacy/delete-account/</td>
+</tr>
+<tr>
+<td>Withdrawing consent</td>
+<td>Sign out, and delete the account if you want the copy gone</td>
+</tr>
+<tr>
+<td>Objection and restriction</td>
+<td>Email support.bakerly.apps@gmail.com</td>
+</tr>
+</tbody></table></div>
+<p>For anything else, email support.bakerly.apps@gmail.com. We respond within 30 days. Except for a deletion request made by email — where we have to know which account to delete, and so will only act on a request from the address on it — we will not ask you for identifying information in order to service a privacy request.</p>
 <p>EEA/UK residents may complain to their national supervisory authority; a list is at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" rel="noopener noreferrer" target="_blank">https://edpb.europa.eu/about-edpb/about-edpb/members_en</a>. We are established in Germany, within the EU, so no Article 27 representative is required. There is no statutory obligation to appoint a Data Protection Officer for processing of this scale.</p>
 <hr>
 <h2 id="12-international-transfers">12. International transfers</h2>
-<p>Data described in the ACTIVE sections does not leave your device, so no transfer occurs.</p>
-<p>Where sections 5–8 are active, our providers may process data in the United States and other countries. Those transfers rely on the European Commission's standard contractual clauses or an applicable adequacy decision, as set out in each provider's terms.</p>
+<p>We are established in Germany and the data is held in Europe. Our server is a Supabase project in Frankfurt (<code>eu-central-1</code>), and crash reports go to Sentry's European region, also in Germany. Neither involves a transfer out of the EEA.</p>
+<p><strong>One exception, and only if you sign in:</strong> sign-in codes are delivered by Resend, a US company, which means your email address is processed in the United States for as long as it takes to send that message. That transfer relies on the European Commission's standard contractual clauses together with the EU–US Data Privacy Framework, as set out in Resend's terms.</p>
+<p>If sections 5, 7 or 8 are ever switched on, their providers may process data in the United States and other countries on the same basis.</p>
 <hr>
 <h2 id="13-security">13. Security</h2>
-<p>On-device data is stored in the app's private storage area, which Android isolates from other apps. Where the conditional sections are active, all traffic to our providers is encrypted in transit with TLS.</p>
-<p>No system is perfectly secure. Given that the app holds no personal data, the realistic worst case is that someone with physical access to your unlocked phone learns which puzzle levels you have solved.</p>
+<p>On-device data is stored in the app's private storage area, which Android isolates from other apps. All traffic to our providers is encrypted in transit with TLS.</p>
+<p>On the server, every table is protected by row-level security: the rules that decide who may read a row are enforced by the database itself rather than by the app asking politely, and they are tested as such on every change. The key that ships inside the app is public by design and grants nothing on its own. Your cloud save is readable only by your own account.</p>
+<p>No system is perfectly secure. If you have never signed in, the realistic worst case is that someone with physical access to your unlocked phone learns which puzzle levels you have solved. If you have an account, the data at risk is the list in section 3.5 and the email address you signed in with — no payment details, which are Google's and never ours, and no password, because there is none to steal: signing in is a code sent to your address.</p>
 <hr>
 <h2 id="14-changes-to-this-policy">14. Changes to this policy</h2>
 <p>We will update this page when the app changes, and update the <strong>Last updated</strong> date. Material changes — in particular switching on any of sections 5 through 8 — will be announced in the app before they take effect, and where consent is required we will ask again rather than assume.</p>
