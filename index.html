@@ -113,13 +113,13 @@
 <td><a href="#36-community-levels">3.6</a></td>
 </tr>
 <tr>
-<td>Advertising (Google AdMob, rewarded video)</td>
-<td><strong>NOT ACTIVE</strong> — no advertising SDK is installed</td>
-<td><a href="#7-advertising--conditional">7</a></td>
+<td>Advertising (Google AdMob)</td>
+<td><strong>ACTIVE</strong> — rewarded video you choose to watch, and occasional full-screen ads between levels</td>
+<td><a href="#7-advertising">7</a></td>
 </tr>
 <tr>
 <td>In-app purchases (Google Play Billing)</td>
-<td><strong>NOT ACTIVE</strong> — no billing SDK is installed</td>
+<td><strong>ACTIVE in the app, not yet selling</strong> — the billing library is present; no products exist in Google Play, so nothing can be bought yet</td>
 <td><a href="#8-purchases--conditional">8</a></td>
 </tr>
 <tr>
@@ -407,8 +407,10 @@
 <blockquote><p>A stack trace can pick up incidental detail — a file path, a device name — that nobody intended to send. We do not attach custom keys, breadcrumbs or user identifiers, which is where that normally comes from.</p></blockquote>
 <p><strong>Provider:</strong> Sentry, acting as our processor. <strong>Legal basis (EEA/UK):</strong> our legitimate interest in keeping the app working (Art. 6(1)(f) GDPR), or consent where the provider's implementation requires it. <strong>Retention:</strong> 90 days, Sentry’s default for error events.</p>
 <hr>
-<h2 id="7-advertising-conditional">7. Advertising — <em>conditional</em></h2>
-<blockquote><p><strong>Status: </strong>NOT ACTIVE<strong> — no advertising SDK is installed.</strong> This section applies only when advertising is switched on. At launch, the app contains no advertising SDK and shows no ads.</p></blockquote>
+<h2 id="7-advertising">7. Advertising</h2>
+<blockquote><p><strong>Status: ACTIVE.</strong> The app contains Google's AdMob SDK and shows two kinds of advert: <strong>rewarded video</strong>, which you choose to watch in exchange for a hint, and <strong>interstitials</strong>, occasional full-screen adverts shown between levels.</p>
+<p>Never during a puzzle, never on the daily puzzle, and never after a level you failed. Buying <strong>Remove ads</strong> or <strong>Complete Edition</strong> ends the interstitials permanently; rewarded video remains, because it is optional and it is how you earn free hints.</p>
+<p><strong>In Europe, no advert is personalised without your consent.</strong> The app asks through Google's consent form the first time it runs. If you decline, or if no consent form is available, the app requests no adverts at all.</p></blockquote>
 <h3 id="71-what-kind-of-ads">7.1 What kind of ads</h3>
 <p>Only <strong>rewarded video</strong>, and only when you choose it — you tap a button offering a hint in exchange for watching a video. There are no interstitials, no banners, and no ad you did not ask for. Declining costs you nothing but the hint.</p>
 <h3 id="72-who-serves-them">7.2 Who serves them</h3>
