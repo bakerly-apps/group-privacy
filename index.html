@@ -127,6 +127,21 @@
 <td><strong>NOT ACTIVE</strong> — no notification plugin is installed, and the app declares no notifications permission</td>
 <td><a href="#4-permissions">4</a></td>
 </tr>
+<tr>
+<td>A player account created for you, without signing in</td>
+<td><strong>NOT ACTIVE</strong> — today nothing is stored on our server unless you sign in or publish a level</td>
+<td><a href="#37-your-player-account">3.7</a></td>
+</tr>
+<tr>
+<td>Your profile shown to other players</td>
+<td><strong>NOT ACTIVE</strong> — today only a published level carries your nickname</td>
+<td><a href="#38-your-profile-and-friends">3.8</a></td>
+</tr>
+<tr>
+<td>Friends, and playing with them</td>
+<td><strong>NOT ACTIVE</strong> — not built</td>
+<td><a href="#38-your-profile-and-friends">3.8</a></td>
+</tr>
 </tbody></table></div>
 <blockquote><p><strong>Maintenance note:</strong> re-publish this document at the same URL on the same day any conditional feature ships. A privacy policy that lags the build is itself a Google Play policy violation. The four conditional sections are written in advance precisely so that switching one on is an edit to one table row rather than a rewrite.</p></blockquote>
 <hr>
@@ -136,6 +151,8 @@
 <p><strong>Publishing a level to Community is public.</strong> The board and the nickname on your profile are shown to everyone who browses it.</p>
 <p>You can delete all of it from inside the app — <strong>Settings → Delete account</strong> — and uninstalling removes what is on the phone.</p>
 <p>We do not sell personal data. We have never sold personal data. We do not show ads and there is no analytics SDK in the app.</p>
+<p><strong>What is coming, and is written here before it ships.</strong> Driftile is adding friends: adding people you know, comparing progress with them, and playing the same puzzles against each other. That needs an identity for every player, so a future version will create a <strong>player account for you automatically</strong>, with no sign-up and no email, and will keep a copy of your progress on our server from the first time you play rather than only after you sign in.</p>
+<p>Sections <a href="#37-your-player-account">3.7</a> and <a href="#38-your-profile-and-friends">3.8</a> describe exactly what that means, and both are marked <strong>NOT ACTIVE</strong> until it ships. They are written in advance because it is easier to read a policy that tells you what is coming than one that changes under you.</p>
 <hr>
 <h2 id="2-what-the-app-stores-on-your-device">2. What the app stores on your device</h2>
 <p>All of the following is written to your device's local storage by the app.</p>
@@ -318,6 +335,16 @@
 <td>Only when you do it</td>
 <td><a href="#36-community-levels">3.6</a></td>
 </tr>
+<tr>
+<td>Your progress, held against a player account made for you <em>(conditional)</em></td>
+<td>Continuously, from the first time you play</td>
+<td><a href="#37-your-player-account">3.7</a></td>
+</tr>
+<tr>
+<td>Your profile, shown to friends or to everyone <em>(conditional)</em></td>
+<td>While you leave it visible</td>
+<td><a href="#38-your-profile-and-friends">3.8</a></td>
+</tr>
 </tbody></table></div>
 <p>Of those, only the daily puzzle and crash reports happen without you asking for them and without an account. Everything else is either something you started or a consequence of choosing to sign in.</p>
 <p>The app requests the Android <code>INTERNET</code> permission and uses it for the above. The features in sections 5, 7 and 8 would also use it if they were switched on.</p>
@@ -368,6 +395,28 @@
 <p>Playing a level from Community also tells the server that it was played, so the play count is right. That request says which level, and nothing about who.</p>
 <p><strong>Drafts are not published.</strong> A level only becomes visible to other players when you tap Publish. If you are signed in, drafts are still copied to your account as part of cloud save (section 3.5) — that is a private backup, not a listing.</p>
 <p><strong>Taking it back down:</strong> a published level's ⋯ menu has <em>Take down</em>. Deleting the level from your device takes it down too.</p>
+<hr>
+<h3 id="37-your-player-account">3.7 Your player account</h3>
+<p><strong>NOT ACTIVE.</strong> Today, nothing about your progress reaches our server unless you sign in, and this section describes what changes when the friends feature ships.</p>
+<p><strong>What it is.</strong> The app will create an account for you the first time it can reach the internet. There is no sign-up screen, no email, no password and nothing to agree to, because there is nothing for you to decide: it is an identifier our server generates, and it exists so that features involving other people are possible at all.</p>
+<p><strong>Why every player and not only the ones who want friends.</strong> Because the alternative is three different kinds of player — one whose game is entirely on their phone, one who has an identity because they added a friend, one who signed in — and a game that has to behave differently for each is a game that will eventually behave wrongly for one of them.</p>
+<p><strong>What is held against it.</strong> The same things listed in section <a href="#35-signing-in-and-cloud-save">3.5</a> as the cloud save: your progress, your built levels including drafts, your purchases and your settings. The difference is only <em>when</em> the copy starts — from your first game rather than from your first sign-in.</p>
+<p><strong>What it is not.</strong></p>
+<ul><li>It is <strong>not</strong> a login. You are never asked for anything and never see it.</li><li>It contains <strong>no email address</strong> and nothing you typed, other than a nickname if you set one.</li><li>It is <strong>not linked to any advertising identifier</strong>, and it is not used to build a profile of you for advertising. See section <a href="#7-advertising">7</a>.</li><li>It cannot be recovered. It lives on this phone; if you lose the phone, that account is gone. <strong>Signing in with an email address is what makes your progress recoverable</strong>, and that is the only thing signing in is for once this ships.</li></ul>
+<p><strong>Deleting it.</strong> <strong>Settings → Delete account</strong> works whether or not you ever signed in. It removes the account, everything held against it, and any levels you published. Uninstalling removes the copy on your phone but not the copy on our server, so if you want both gone, delete the account first — the same sentence that applies to a signed-in account today.</p>
+<p><strong>Offline.</strong> The game still plays with no connection. The account is created the first time the app reaches our server and the game does not wait for it.</p>
+<hr>
+<h3 id="38-your-profile-and-friends">3.8 Your profile, and friends</h3>
+<p><strong>NOT ACTIVE.</strong> Nothing described here is built. It is written now so that it is in the policy before it is in the app rather than after.</p>
+<p><strong>Your profile.</strong> A page carrying your nickname, your picture and frame, and a set of figures about how you have played:</p>
+<ul><li>levels solved, stars earned, chapters finished, perfect chapters</li><li>awards collected</li><li>your longest streak, and how many daily puzzles you have solved</li><li>levels you have published, how many times they have been played, and their ratings</li></ul>
+<p><strong>What is never on it, for anybody.</strong> How many hints you used, how many jokers you used, and your total move count. Those describe how you play rather than how far you have come, and two of them are things the shop sells.</p>
+<p><strong>Your current streak is shown to friends only</strong>, never publicly. It is the one figure that can go down, and a number that can be lost in front of strangers is a different thing from one seen by people you chose.</p>
+<p><strong>Who can see it.</strong> A setting in the app, with three choices: <strong>just you</strong>, <strong>your friends</strong>, or <strong>everyone</strong>. You can change it at any time, and changing it to "just you" hides the profile from that moment.</p>
+<p><strong>Friends.</strong> You add somebody by sending them a link or a code, or by opening one they sent you, and both of you have to accept. There is <strong>no search and no directory</strong> — nobody can find you by typing your name, and no list of players exists to be browsed. The code is random and cannot be guessed from anyone else's.</p>
+<p>Your friends list — who you have added — is held on our server, because both sides have to see it. It is not shown to anyone but the two of you and it is never sold, shared or used for advertising.</p>
+<p><strong>Playing together.</strong> When you play a round with friends, everyone plays the same puzzles and the results are compared. What is stored is the same as for a daily puzzle: which board, how many moves, and the moves themselves so the server can check the result is real. It carries your nickname because a scoreboard without names is not a scoreboard.</p>
+<p><strong>Leaving.</strong> You can remove a friend at any time, which removes the connection for both of you. Deleting your account removes your profile, your friends list and your results from any rounds you played.</p>
 <hr>
 <h2 id="4-permissions">4. Permissions</h2>
 <div class="scroll"><table><thead><tr>
@@ -436,7 +485,9 @@
 <p><strong>Restore purchases</strong> re-queries Google Play for what your Google account already owns. It does not create any record with us.</p>
 <hr>
 <h2 id="9-children">9. Children</h2>
-<p>The game contains no violence, no chat, no user-generated content, no social features, and no external links other than those in this policy. It is suitable for all ages by content.</p>
+<p>The game contains no violence and no chat, and no external links other than those in this policy. It is suitable for all ages by content.</p>
+<p>It does contain <strong>user-made levels</strong>: anyone can build a puzzle and publish it, and anyone can browse what others published. A level is a board and a title — there is no free text beyond the title, no images and no messaging — and every published level can be reported from its own menu. Titles are checked before they appear.</p>
+<p>When friends ship (section <a href="#38-your-profile-and-friends">3.8</a>) the game will also let players connect to each other. That is deliberately built so that <strong>nobody can find anybody</strong>: a connection can only begin with a link one person sends another, there is no search and no browsable list of players, and the codes are random rather than sequential so they cannot be guessed. There is still no chat of any kind.</p>
 <p>However, it is <strong>not directed to children</strong> within the meaning of COPPA, the GDPR's rules on children's data, or Google Play's Families policy, and it is not enrolled in Google Play's Designed for Families programme. We do not knowingly collect personal information from anyone under 13.</p>
 <p>This matters for one practical reason: once advertising (section 7) is switched on, the app uses standard advertising infrastructure that is not permitted in apps aimed at children. If you are a parent and your child uses this app, consider deleting the device's advertising ID (section 7.3), which turns off ad personalisation across every app on the device.</p>
 <p>If you believe a child has provided personal information to us, contact support.bakerly.apps@gmail.com and we will delete it.</p>
@@ -455,7 +506,19 @@
 <td>Uninstall the app, or <strong>Settings → Apps → Driftile → Storage → Clear data</strong></td>
 </tr>
 <tr>
-<td>Cloud save — progress, built levels, purchases, settings <em>(signed in only)</em></td>
+<td>Cloud save — progress, built levels, purchases, settings <em>(signed in only; see 3.7)</em></td>
+<td>Supabase (our server), Frankfurt</td>
+<td>Until you delete your account</td>
+<td><strong>Settings → Delete account</strong></td>
+</tr>
+<tr>
+<td>Your profile and your friends list <em>(conditional)</em></td>
+<td>Supabase (our server), Frankfurt</td>
+<td>Until you delete your account, or remove the friend</td>
+<td><strong>Settings → Delete account</strong>, or remove the friend</td>
+</tr>
+<tr>
+<td>Results from rounds played with friends <em>(conditional)</em></td>
 <td>Supabase (our server), Frankfurt</td>
 <td>Until you delete your account</td>
 <td><strong>Settings → Delete account</strong></td>
@@ -515,7 +578,8 @@
 <td>Via your Google Play account</td>
 </tr>
 </tbody></table></div>
-<p><strong>If you never sign in, there is no account to delete.</strong> Uninstalling the app removes everything held on your device. If you did sign in, <strong>Settings → Delete account</strong> removes the account and the data held against it; levels you published are taken down from Community with it.</p>
+<p><strong>Today, if you never sign in, there is no account to delete.</strong> Uninstalling the app removes everything held on your device. If you did sign in, <strong>Settings → Delete account</strong> removes the account and the data held against it; levels you published are taken down from Community with it.</p>
+<p><strong>When section <a href="#37-your-player-account">3.7</a> ships this changes</strong>, and it is the practical difference worth knowing: there will be an account for you whether or not you ever signed in, so uninstalling will no longer be enough to remove everything. <strong>Settings → Delete account</strong> will work without an email address and will remove it all. The button is in the same place either way.</p>
 <h3 id="why-we-cannot-delete-individual-analytics-or-crash-records">Why we cannot delete individual analytics or crash records</h3>
 <p>Because those records carry <strong>no identifier of any kind</strong> (section 5), there is nothing in them that points back to you, and nothing we could match a deletion request against. We are not withholding a lookup — the lookup does not exist. If you emailed us asking us to delete your events, we would have no honest way to find them, and we will not ask you for extra personal information in order to try, because collecting identifying data to service a privacy request would make the situation worse rather than better.</p>
 <p>What you can actually do, and what it achieves:</p>
@@ -525,7 +589,8 @@
 <hr>
 <h2 id="11-your-rights">11. Your rights</h2>
 <p>Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal data, to object to or restrict processing, to withdraw consent, and to complain to a data protection authority.</p>
-<p><strong>If you have never signed in, we hold nothing about you</strong> and there is nothing to access, correct, export or delete. Crash reports carry no identifier, so we could not find yours among them even if you asked (see below).</p>
+<p><strong>Today, if you have never signed in, we hold nothing about you</strong> and there is nothing to access, correct, export or delete. Crash reports carry no identifier, so we could not find yours among them even if you asked (see below).</p>
+<p><strong>When section <a href="#37-your-player-account">3.7</a> ships, that stops being true</strong>, and the rights below apply to every player rather than only to those who signed in. The route changes with it: without an email address we cannot recognise you from a message, so the reliable way to exercise them is <strong>in the app</strong>, where the account is already proven to be yours — <strong>Settings → Delete account</strong> deletes, and the same screen is where a copy of your data can be requested. If you have lost the device, we cannot identify the account, and we would rather say so than delete somebody else's game on your behalf.</p>
 <p><strong>If you have an account</strong>, those rights bite on everything listed in section 3.5, and the practical routes are:</p>
 <div class="scroll"><table><thead><tr>
 <th>Right</th>
